@@ -17,7 +17,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin -
 
 RUN echo 'export PATH="~/.composer/vendor/bin:$PATH"' >> ~/.bashrc
 
-COPY . /usr/www
 WORKDIR /usr/www
+RUN chown -R www-data:www-data /usr/www
 
 CMD ["php-fpm"]

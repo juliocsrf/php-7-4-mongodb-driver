@@ -20,9 +20,7 @@ RUN echo 'export PATH="~/.composer/vendor/bin:$PATH"' >> ~/.bashrc
 WORKDIR /usr/www
 RUN chown -R www-data:www-data /usr/www
 
-RUN ssh-keygen -b 2048 -t rsa -f /root/.ssh/id_rsa -q -N ""
 RUN mkdir /var/www/.ssh
 RUN chown -R www-data:www-data /var/www/.ssh
-RUN sudo -u www-data ssh-keygen -b 2048 -t rsa -f /var/www/.ssh/id_rsa -q -N ""
 
 CMD ["php-fpm"]

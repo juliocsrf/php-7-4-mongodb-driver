@@ -17,6 +17,7 @@ RUN apt-get install -y \
 
 RUN pecl install mongodb-1.9.0
 RUN echo "extension=mongodb.so" >> /usr/local/etc/php/conf.d/mongodb.ini
+RUN echo "" >> /usr/local/etc/php/conf.d/custom.ini
 
 RUN docker-php-ext-install bcmath
 RUN docker-php-ext-install ctype

@@ -28,6 +28,7 @@ RUN docker-php-ext-install pdo_mysql
 RUN docker-php-ext-install tokenizer
 RUN docker-php-ext-install gd
 RUN docker-php-ext-install zip
+RUN docker-php-ext-install mysqli
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
 

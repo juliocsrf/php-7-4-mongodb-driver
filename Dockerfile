@@ -13,7 +13,8 @@ RUN apt-get install -y \
 	sudo \
 	zlib1g-dev \
 	libzip-dev \
-	libpng-dev
+	libpng-dev \
+	libpq-dev
 
 RUN pecl install mongodb-1.9.0
 RUN echo "extension=mongodb.so" >> /usr/local/etc/php/conf.d/mongodb.ini
@@ -29,6 +30,7 @@ RUN docker-php-ext-install tokenizer
 RUN docker-php-ext-install gd
 RUN docker-php-ext-install zip
 RUN docker-php-ext-install mysqli
+RUN docker-php-ext-install pdo_pgsql
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
 

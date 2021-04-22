@@ -28,13 +28,8 @@ RUN apt-get install -y \
 	qtwayland5 \
 	qt5-qmltooling-plugins \
 	librsvg2-bin \
-	lm-sensors
-
-
-RUN sudo wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.5/wkhtmltox_0.12.5-1.stretch_amd64.deb
-RUN sudo dpkg -i wkhtmltox_0.12.5-1.stretch_amd64.deb
-RUN sudo cp /usr/local/bin/wkhtmltopdf /usr/bin/
-RUN sudo cp /usr/local/bin/wkhtmltoimage /usr/bin/
+	lm-sensors \
+	wkhtmltopdf
 
 RUN pecl install mongodb-1.9.0
 RUN echo "extension=mongodb.so" >> /usr/local/etc/php/conf.d/mongodb.ini

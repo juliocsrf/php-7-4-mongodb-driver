@@ -29,7 +29,8 @@ RUN apt-get install -y \
 	qt5-qmltooling-plugins \
 	librsvg2-bin \
 	lm-sensors \
-	wkhtmltopdf
+	wkhtmltopdf \
+	cron
 
 RUN pecl install mongodb-1.9.0
 RUN echo "extension=mongodb.so" >> /usr/local/etc/php/conf.d/mongodb.ini
@@ -57,4 +58,7 @@ RUN chown -R www-data:www-data /usr/www
 RUN mkdir /var/www/.ssh
 RUN chown -R www-data:www-data /var/www/.ssh
 
-CMD ["php-fpm"]
+ADD start.sh /
+RUN chmod +x /start.sh
+
+CMD ["/start.sh"]

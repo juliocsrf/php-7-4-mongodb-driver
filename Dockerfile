@@ -47,6 +47,7 @@ RUN docker-php-ext-install gd
 RUN docker-php-ext-install zip
 RUN docker-php-ext-install mysqli
 RUN docker-php-ext-install pdo_pgsql
+RUN docker-php-ext-install opcache
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
 

@@ -29,12 +29,15 @@ RUN apt-get install -y \
 	qt5-qmltooling-plugins \
 	librsvg2-bin \
 	lm-sensors \
-	wkhtmltopdf \
 	cron
 
 RUN pecl install mongodb-1.9.0
 RUN echo "extension=mongodb.so" >> /usr/local/etc/php/conf.d/mongodb.ini
 RUN echo "" >> /usr/local/etc/php/conf.d/custom.ini
+
+RUN wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz
+RUN tar xvJf wkhtmltox-0.12.4_linux-generic-amd64.tar.xz
+RUN sudo cp wkhtmltox/bin/wkhtmlto* /usr/bin/
 
 RUN docker-php-ext-install bcmath
 RUN docker-php-ext-install ctype

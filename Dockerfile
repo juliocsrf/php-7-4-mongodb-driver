@@ -31,7 +31,7 @@ RUN apt-get install -y \
 	lm-sensors \
 	cron
 
-RUN pecl install mongodb-1.9.0
+RUN pecl install mongodb-1.12.0
 RUN echo "extension=mongodb.so" >> /usr/local/etc/php/conf.d/mongodb.ini
 RUN echo "" >> /usr/local/etc/php/conf.d/custom.ini
 
